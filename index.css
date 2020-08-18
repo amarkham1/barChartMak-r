@@ -1,0 +1,19 @@
+body {
+  background-color: lightgrey;
+}
+
+.chart-container {
+  background-color: red;
+}
+
+.title-container {
+  background-color: yellow;
+}
+
+.yAxis-container {
+  background-color: blue;
+}
+
+.xAxis-container {
+  background-color: green;
+}
