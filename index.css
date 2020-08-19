@@ -25,14 +25,27 @@ body {
 }
 
 .yAxisTick {
-  background-color: pink;
+  background-color:white;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  border-top: 2px solid black;
+  position: relative;
+}
+
+.yAxisTick:after {
+  padding: 0; margin: 0; display: block;
+  content: "";
+  width: 70%;
+  height: 2.2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: -2px;
 }
 
 .xAxis-container {
-  background-color: green;
+  background-color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -46,8 +59,38 @@ body {
   align-items: center;
 }
 
+.xAxisLeftMargin {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-top: 2px solid black;
+  position: relative;
+}
+
+.xAxisLeftMargin:after {
+  padding: 0; margin: 0; display: block;
+  content: "";
+  width: 70%;
+  height: 2.2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
 .data-container {
   background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.dataBar {
+  background-color: lightcyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title-text {
