@@ -2,14 +2,15 @@ function drawBarChart(data, options, element) {
   const DATALEN = data.length;
   const MAXVALUE = findMax(data);
   const CHARTHEIGHT = (options['height'] ? options['height'] : 400);
-  const CHARTWIDTH = (options['width'] ? options['width'] : 600);
+  const CHARTWIDTH = (options['width'] ? options['width'] : (30 + DATALEN * 70));
   const YAXISTICKS = (options['yAxisTicks'] ? options['yAxisTicks']: 5 );
   const YAXISMAX = (Math.floor(MAXVALUE / YAXISTICKS) + 1) * YAXISTICKS;
-  const TITLEHEIGHT = 40;
-  const YAXISWIDTH = 40;
-  const XAXISHEIGHT = 40;
+  const TITLEHEIGHT = 30;
+  const YAXISWIDTH = 30;
+  const XAXISHEIGHT = 30;
   const XAXISWIDTH = CHARTWIDTH - YAXISWIDTH;
-  const TITLECOLOUR = (options['titleColour'] ? options['titleColour']: "gray" );
+  const BARPADDING = 15;
+  const TITLECOLOUR = (options['titleColour'] ? options['titleColour']: "black" );
   const TITLEFONTSIZE = (options['titleFontSize'] ? options['titleFontSize']: "20" );
   const TITLETEXT = (options['titleText'] ? options['titleText']: 'YOUR CHART TITLE!' );
 
@@ -32,8 +33,12 @@ function drawBarChart(data, options, element) {
 
   let dataBox = $('<div></div>').addClass('data-container').width(CHARTWIDTH - YAXISWIDTH).height(CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT);
   for(i = 0; i < DATALEN; i++) {
-    let dataBar = $('<div>' + data[i] + '</div>').addClass('dataBar').width(XAXISWIDTH / DATALEN).height((data[i] / YAXISMAX) * (CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT));
+    let leftPadding = $('<div></div>').addClass('dataPadding').width(BARPADDING).height((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT));
+    let dataBar = $('<div>' + data[i] + '</div>').addClass('dataBar').width((XAXISWIDTH - DATALEN * BARPADDING * 2) / DATALEN).height((data[i] / YAXISMAX) * (CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT));
+    let rightPadding = $('<div></div>').addClass('dataPadding').width(BARPADDING).height((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT));
+    dataBox.append(leftPadding);
     dataBox.append(dataBar);
+    dataBox.append(rightPadding);
   }
   chart.append(dataBox);
 

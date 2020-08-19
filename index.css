@@ -7,19 +7,23 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 2px solid black;
+  border: 1px solid black;
+  margin: 20px;
 }
 
 .title-container {
-  background-color: yellow;
+  background-color: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
+.title-text {
+  text-align: center;
+}
 
 .yAxis-container {
-  background-color: blue;
+  background-color: white;
   display: flex;
   flex-direction: column;
 }
@@ -29,7 +33,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  border-top: 2px solid black;
+  border-top: 1px solid black;
   position: relative;
 }
 
@@ -37,11 +41,11 @@ body {
   padding: 0; margin: 0; display: block;
   content: "";
   width: 70%;
-  height: 2.2px;
+  height: 1.1px;
   background-color: white;
   position: absolute;
   left: 0;
-  top: -2px;
+  top: -1px;
 }
 
 .xAxis-container {
@@ -50,10 +54,11 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid black;
 }
 
 .xAxisTick {
-  background-color: lightgreen;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +68,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  border-top: 2px solid black;
+  border-top: 1px solid black;
   position: relative;
 }
 
@@ -71,15 +76,15 @@ body {
   padding: 0; margin: 0; display: block;
   content: "";
   width: 70%;
-  height: 2.2px;
+  height: 1.1px;
   background-color: white;
   position: absolute;
   left: 0;
-  top: -2px;
+  top: -1px;
 }
 
 .data-container {
-  background-color: lightgrey;
+  background-color: white;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -87,15 +92,20 @@ body {
 }
 
 .dataBar {
-  background-color: lightcyan;
+  background-color: darkgreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.dataPadding {
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.title-text {
-  text-align: center;
-}
 
 
 
