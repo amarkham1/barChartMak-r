@@ -4,16 +4,55 @@ body {
 
 .chart-container {
   background-color: red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid black;
 }
 
 .title-container {
   background-color: yellow;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
+
 
 .yAxis-container {
   background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.yAxisTick {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .xAxis-container {
   background-color: green;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
+
+.xAxisTick {
+  background-color: lightgreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-container {
+  background-color: lightgrey;
+}
+
+.title-text {
+  text-align: center;
+}
+
+
+
