@@ -3,20 +3,35 @@ function drawBarChart(data, options, element) {
   const MAXVALUE = findMax(data);
   const CHARTHEIGHT = (options['height'] ? options['height'] : 400);
   const CHARTWIDTH = (options['width'] ? options['width'] : (30 + DATALEN * 70));
-  const YAXISTICKS = (options['yAxisTicks'] ? options['yAxisTicks']: 5 );
+  const YAXISTICKS = (options['yAxisTicks'] ? options['yAxisTicks'] : ((Math.floor(MAXVALUE / 4) + 1) * 4) - MAXVALUE <= (Math.floor(MAXVALUE / 5) + 1) * 5 - MAXVALUE ? 4 : 5);
+  const TITLECOLOUR = (options['titleColour'] ? options['titleColour'] : "black" );
+  const TITLEFONTSIZE = (options['titleFontSize'] ? options['titleFontSize'] : "20" );
+  const TITLETEXT = (options['titleText'] ? options['titleText'] : 'YOUR CHART TITLE!' );
   const YAXISMAX = (Math.floor(MAXVALUE / YAXISTICKS) + 1) * YAXISTICKS;
   const TITLEHEIGHT = 30;
   const YAXISWIDTH = 30;
   const XAXISHEIGHT = 30;
   const XAXISWIDTH = CHARTWIDTH - YAXISWIDTH;
-  const BARPADDING = 15;
-  const TITLECOLOUR = (options['titleColour'] ? options['titleColour']: "black" );
-  const TITLEFONTSIZE = (options['titleFontSize'] ? options['titleFontSize']: "20" );
-  const TITLETEXT = (options['titleText'] ? options['titleText']: 'YOUR CHART TITLE!' );
+  const BARPADDING = 0.04 * (CHARTWIDTH - YAXISWIDTH) * 5 / DATALEN;
 
   let chart = $('<div></div>').addClass('chart-container').width(CHARTWIDTH).height(CHARTHEIGHT);
 
-  let titleContainer = $('<div></div>').addClass('title-container').width(CHARTWIDTH).height(TITLEHEIGHT);
+  let yAxisContainer = $('<div></div>').addClass('yAxis-container').width(YAXISWIDTH).height(CHARTHEIGHT);
+  yAxisTopMargin = $('<div></div>').addClass('AxisLeftMargin').width(YAXISWIDTH).height(TITLEHEIGHT);
+  yAxisContainer.append(yAxisTopMargin);
+  for(i = 0; i < YAXISTICKS; i++) {
+    let yAxisTick = $('<div>' + (YAXISMAX - (i * YAXISMAX / YAXISTICKS)) + '</div>').addClass('yAxisTick').width(YAXISWIDTH).height((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT) / YAXISTICKS).css({
+      'top': - (((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT) / YAXISTICKS) / 2) + 'px'
+    });
+    yAxisContainer.append(yAxisTick);
+  }
+  xAxisLeftMargin = $('<div>0</div>').addClass('AxisLeftMargin').width(YAXISWIDTH).height(XAXISHEIGHT).css({
+      'top': - (XAXISHEIGHT / 2) + 'px'
+  });
+  yAxisContainer.append(xAxisLeftMargin);
+  chart.append(yAxisContainer);
+
+  let titleContainer = $('<div></div>').addClass('title-container').width(CHARTWIDTH - YAXISWIDTH).height(TITLEHEIGHT);
   let titleText = $('<div>' + TITLETEXT + '</div>').addClass('title-text').css({
     fontSize: TITLEFONTSIZE + 'px',
     color: TITLECOLOUR
@@ -24,14 +39,11 @@ function drawBarChart(data, options, element) {
   let title = titleContainer.append(titleText);
   chart.append(title);
 
-  let yAxisContainer = $('<div></div>').addClass('yAxis-container').width(YAXISWIDTH).height(CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT);
-  for(i = 0; i < YAXISTICKS; i++) {
-    let yAxisTick = $('<div>' + (YAXISMAX - (i * YAXISMAX / YAXISTICKS)) + '</div>').addClass('yAxisTick').width(YAXISWIDTH).height((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT) / YAXISTICKS);
-    yAxisContainer.append(yAxisTick);
-  }
-  chart.append(yAxisContainer);
 
-  let dataBox = $('<div></div>').addClass('data-container').width(CHARTWIDTH - YAXISWIDTH).height(CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT);
+  let dataBox = $('<div></div>').addClass('data-container').width(CHARTWIDTH - YAXISWIDTH).height(CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT).css({
+    'background-image': 'linear-gradient(#ccc 1px, transparent 1px)',
+    'background-size':'100% ' + ((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT) / YAXISTICKS) + 'px'
+  });
   for(i = 0; i < DATALEN; i++) {
     let leftPadding = $('<div></div>').addClass('dataPadding').width(BARPADDING).height((CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT));
     let dataBar = $('<div>' + data[i] + '</div>').addClass('dataBar').width((XAXISWIDTH - DATALEN * BARPADDING * 2) / DATALEN).height((data[i] / YAXISMAX) * (CHARTHEIGHT - TITLEHEIGHT - XAXISHEIGHT));
@@ -42,17 +54,17 @@ function drawBarChart(data, options, element) {
   }
   chart.append(dataBox);
 
-  let xAxisContainer = $('<div></div>').addClass('xAxis-container').width(CHARTWIDTH).height(XAXISHEIGHT);
-  xAxisLeftMargin = $('<div>0</div>').addClass('xAxisLeftMargin').width(YAXISWIDTH).height(XAXISHEIGHT);
-  xAxisContainer.append(xAxisLeftMargin);
+  let xAxisContainer = $('<div></div>').addClass('xAxis-container').width(CHARTWIDTH - YAXISWIDTH).height(XAXISHEIGHT);
   for(i = 0; i < DATALEN; i++) {
     let xAxisTick = $('<div>' + options['xAxisData'][i] + '</div>').addClass('xAxisTick').width(XAXISWIDTH / DATALEN).height(XAXISHEIGHT);
     xAxisContainer.append(xAxisTick);
   }
   chart.append(xAxisContainer);
 
+  let chartPaddingRight = $('<div></div>').addClass('rightPadding').width()
 
-  return $("body").append(chart);
+
+  return $(element).append(chart);
 }
 
 function findMax(data) {

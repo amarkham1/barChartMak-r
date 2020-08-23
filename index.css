@@ -3,12 +3,15 @@ body {
 }
 
 .chart-container {
-  background-color: red;
+  background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   border: 1px solid black;
   margin: 20px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 13px;
+  padding-right: 10px;
 }
 
 .title-container {
@@ -26,27 +29,19 @@ body {
   background-color: white;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 .yAxisTick {
   background-color:white;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  border-top: 1px solid black;
+  align-items: center;
   position: relative;
 }
 
-.yAxisTick:after {
-  padding: 0; margin: 0; display: block;
-  content: "";
-  width: 70%;
-  height: 1.1px;
-  background-color: white;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
 
 .xAxis-container {
   background-color: white;
@@ -54,7 +49,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid black;
 }
 
 .xAxisTick {
@@ -62,26 +56,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(#000, #000) no-repeat top/1px 5px;
 }
 
-.xAxisLeftMargin {
+.AxisLeftMargin {
+  background-color: white;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  border-top: 1px solid black;
+  align-items: center;
   position: relative;
 }
 
-.xAxisLeftMargin:after {
-  padding: 0; margin: 0; display: block;
-  content: "";
-  width: 70%;
-  height: 1.1px;
-  background-color: white;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
 
 .data-container {
   background-color: white;
@@ -97,15 +82,13 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  border-bottom: 1px solid black;
 }
 
 .dataPadding {
-  background-color: white;
+  background-color: white 0%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid black;
 }
-
-
-
-
