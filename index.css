@@ -1,5 +1,35 @@
 body {
   background-color: lightgrey;
+  margin: 0;
+  padding: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav-bar {
+  background-color: #e87f23;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  border-bottom: 1px solid black;
+}
+
+.logo {
+  padding-right: 30px;
+}
+
+.title {
+  font-size: 32px;
+  color: white;
+}
+
+h3 {
+  margin-top: 50px;
 }
 
 .chart-container {
@@ -12,6 +42,7 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 13px;
   padding-right: 10px;
+  padding-top: 10px;
 }
 
 .title-container {
@@ -76,13 +107,18 @@ body {
   justify-content: center;
 }
 
-.dataBar {
-  background-color: darkgreen;
+.dataBarContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
+  align-items: flex-end;
+  flex-direction: column-reverse;
   border-bottom: 1px solid black;
+}
+
+.dataBar {
+  display: flex;
+  justify-content: center;
+  color: white;
 }
 
 .dataPadding {

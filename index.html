@@ -9,10 +9,25 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-  <script src="/script.js"></script>
+  <script src="/script.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function(){
+      drawBarChart([1, 2, 3, 4, 11, 13, 6, 3, 2, 3, 1], { width: 800, height: 400, barLabelPosition: 'center', barColour: ['darkgreen'], barSpacing: 10, titleText: 'TEST CHART #1!', titleColour: 'black', xAxisData: ['Dec-2020', 'Jan-2021', 'Feb-2021', 'Mar-2021', 'Apr-2021', 'May-2021', 'Jun-2021', 'Jul-2021', 'Aug-2021', 'Sep-2021', 'Oct-2021'] }, 'body');
+      drawBarChart([1, 2, 3, 4, 11, 13], { width: 600, height: 300, barLabelPosition: 'top', barColour: ['darkblue', 'darkgray', 'darkblue', 'darkgray', 'darkblue', 'darkgray'], barSpacing: 20, titleText: 'TEST CHART #2!', titleColour: 'darkgreen', xAxisData: ['Dec-2020', 'Jan-2021', 'Feb-2021', 'Mar-2021', 'Apr-2021', 'May-2021'] }, 'body');
+      drawBarChart([[1, 3, 5], [2, 14], [3, 3], [4, 0], [11, 4], [13, 2]], { width: 600, height: 300, barLabelPosition: 'top', barColour: [['darkblue', 'lightblue', 'darkgray'], ['darkblue', 'lightblue'], ['darkblue', 'lightblue'], ['darkblue', 'lightblue'], ['darkblue', 'lightblue'], ['darkblue', 'lightblue']], barSpacing: 20, titleText: 'TEST CHART #3!', titleColour: 'darkgreen', xAxisData: ['Dec-2020', 'Jan-2021', 'Feb-2021', 'Mar-2021', 'Apr-2021', 'May-2021'] }, 'body');
+    })
+  </script>
 </head>
-<body>
-  <h1>Test Heading</h1>
-  <button onclick="drawBarChart([1, 2, 3, 4, 11, 13, 6, 3, 2, 3, 1], { width: 800, height: 400, xAxisData: ['Dec-2020', 'Jan-2021', 'Feb-2021', 'Mar-2021', 'Apr-2021', 'May-2021', 'Jun-2021', 'Jul-2021', 'Aug-2021', 'Sep-2021', 'Oct-2021'] }, 'body')">Click Me</button>
+<body onload = >
+  <div class='nav-bar'>
+    <div class='logo'>
+      <img src='./logo.png' width='60'>
+    </div>
+    <div class='title'>BAR CHART MAK'R</div>
+  </div>
+
+  <h3>Click the button below to create a bar chart!</h3>
+  <button onclick="drawBarChart([1, 2, 3, 4, 11, 13, 6, 3, 2, 3, 1], { width: 800, height: 400, xAxisData: ['Dec-2020', 'Jan-2021', 'Feb-2021', 'Mar-2021', 'Apr-2021', 'May-2021', 'Jun-2021', 'Jul-2021', 'Aug-2021', 'Sep-2021', 'Oct-2021'] }, 'body')">Make Me A Bar Chart</button>
+
 </body>
 </html>
