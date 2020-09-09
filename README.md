@@ -44,7 +44,7 @@ Here are a few example of charts you can make:
 (https://github.com/amarkham1/stretchProject/blob/master/images/SampleChart2.png)
 
 ![Sample bar chart 3]
-(https://github.com/amarkham1/stretchProject/blob/master/images/SampleChart3.png)
+(/images/SampleChart3.png)
 
 ## Bugs ##
 
