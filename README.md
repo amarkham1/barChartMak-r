@@ -37,13 +37,13 @@ The ```options``` parameter is where you can customize the chart and add labels 
 
 Here are a few example of charts you can make:
 
-(/images/SampleChart1.png?raw=true)
+(https://github.com/amarkham1/stretchProject/blob/master/images/SampleChart1.png)
 
 
-(/images/SampleChart2.png?raw=true)
+(https://github.com/amarkham1/stretchProject/blob/master/images/SampleChart2.png)
 
 
-(/images/SampleChart3.png?raw=true)
+(https://github.com/amarkham1/stretchProject/blob/master/images/SampleChart3.png)
 
 ## Bugs ##
 
