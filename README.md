@@ -38,6 +38,7 @@ The ```options``` parameter is where you can customize the chart and add labels 
 Here are a few example of charts you can make:
 
 ![Sample bar chart 1]
+(https://raw.githubusercontent.com/amarkham1/stretchProject/master/images/SampleChart1.png)
 (https://github.com/amarkham1/stretchProject/blob/master/images/SampleChart1.png)
 
 ![Sample bar chart 2]
