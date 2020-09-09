@@ -1,8 +1,41 @@
-## About
+## About ##
 
-This JQuery-driven API gives the user the ability to build a customizable bar chart and hook it into the provided element in their web page. 
+This JQuery-driven API can be used to build a customizable bar chart with data and labels provided by the user. The chart can then be hooked it into the provided DOM element of a ```.html``` file. 
 
-Give some context to what your project is for
+This project was built as part of the Lighthouse Labs Web Development bootcamp preparation.
+
+## Usage ##
+
+First, you need to enable JQuery and link the ```/script.js``` file included in this repository in the header of your ```.html``` file:
+```
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/script.js" type="text/javascript"></script>
+```
+
+Next, call the provided ```drawBarChart()``` function along with the data, options, and the DOM element where the chart will be added:
+```
+<script>
+   $(document).ready(function(){
+    drawBarChart(<data>, <options>, <DOM element>);
+   })
+</script>
+```
+
+The ```data``` parameter takes a 1D or 2D (for stacked bar charts) array of numbers.
+
+The ```options``` parameter is where you can customize the chart and add labels for the x-axis. Here is a full list of parameters you can manipulate:
+- width: the chart width in px,
+- height: the chart height in px,
+- barLabelPosition: where the text appears within a particular bar. Options include 'top', 'bottom' and 'center',
+- barColour: can be a single string value to colour all data bars in the chart, a 1D array of strings to colour each data bar, or a 2D array where a stacked bar chart is required,
+- barSpacing: the space between data bars in px,
+- titleText: a string representing the title of the chart,
+- titleColour: a string representing the colour of the title text, and
+- xAxisData: a 1D array representing the x-axis labels and should be the same length as the data array
+
+## Example Charts ##
+
+
 Example Screenshots (embedded within the readme as image tags)
 List the API functions that you would expect a user to use
 Describe the function and the parameters to each function
