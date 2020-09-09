@@ -35,9 +35,24 @@ The ```options``` parameter is where you can customize the chart and add labels 
 
 ## Example Charts ##
 
+Here are a few example of charts you can make:
+![Sample Chart 1]
+(https://github.com/amarkham1/stretchProject/issues/1)
 
 
-Example Screenshots (embedded within the readme as image tags)
-A list of known issues / bugs
-A list of features that are on the roadmap but haven't been implemented yet
-A list of all the external resources (tutorials, docs, example code, etc) that you encountered and used to help you create this library
+![Sample Chart 2]
+(https://github.com/amarkham1/stretchProject/issues/2)
+
+
+![Sample Chart 3]
+(https://github.com/amarkham1/stretchProject/issues/3)
+
+## Bugs ##
+
+- Chart data may not appear properly when the ```width``` or ```height``` option values provided are too small or if the ```barSpacing``` value is too large for the area dedicated to the bars
+- Providing x-axis labels (using the ```xAxisData``` option) which are too long can also result in text-wrapping styling issues.
+- Bar data labels can appear cropped when the value of the bar provided is too small for the font size of the data.
+
+## Roadmap ##
+
+In addition to fixing the above-mentioned bugs, the roadmap to improve this project includes building out additional chart options, such as rounding corners, tweaking the background colour, and being able to change the font size of the labels and bar values.
